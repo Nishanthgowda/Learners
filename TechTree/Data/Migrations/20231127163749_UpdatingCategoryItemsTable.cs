@@ -4,7 +4,7 @@
 
 namespace TechTree.Data.Migrations
 {
-    public partial class UpdatingCategoryItems_Table : Migration
+    public partial class UpdatingCategoryItemsTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -115,18 +115,20 @@ namespace TechTree.Data.Migrations
                 oldMaxLength: 250);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Content_CategoryItem_CategoryItemId",
-                table: "Content",
-                column: "CategoryItemId",
-                principalTable: "CategoryItem",
-                principalColumn: "Id");
+               name: "FK_Content_CategoryItem_CategoryItemId",
+               table: "Content",
+               column: "CategoryItemId",
+               principalTable: "CategoryItem",
+               principalColumn: "Id",
+               onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_UserCategory_AspNetUsers_UserId",
                 table: "UserCategory",
                 column: "UserId",
                 principalTable: "AspNetUsers",
-                principalColumn: "Id");
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

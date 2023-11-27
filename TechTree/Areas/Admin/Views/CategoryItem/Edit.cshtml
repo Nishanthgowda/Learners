@@ -9,9 +9,9 @@
 <h4>CategoryItem</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Edit">
-            <input type="hidden" asp-for="CategoryId"></input>
+            <input type="hidden" asp-for="CategoryId"/>
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -29,12 +29,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <textarea asp-for="Description" rows="3" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DateTimeItemReleased" class="control-label"></label>
-                <input asp-for="DateTimeItemReleased" class="form-control" />
+                <input type="text" id="DateTimeItemReleased" name="DateTimeItemReleased" value="@Model.DateTimeItemReleased.ToString("yyyy-MM-dd")" class="form-control" />
                 <span asp-validation-for="DateTimeItemReleased" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,5 +49,8 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        await Html.RenderPartialAsync("_DateScriptPartial");
+}
 }

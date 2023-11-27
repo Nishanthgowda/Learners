@@ -12,8 +12,8 @@ using TechTree.Data;
 namespace TechTree.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231125161737_UpdatingCategoryItems_Table")]
-    partial class UpdatingCategoryItems_Table
+    [Migration("20231127163749_UpdatingCategoryItemsTable")]
+    partial class UpdatingCategoryItemsTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

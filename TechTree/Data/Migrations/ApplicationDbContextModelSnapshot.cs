@@ -266,7 +266,7 @@ namespace TechTree.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("TechTree.Entities.CategoryItem", b =>
@@ -300,7 +300,7 @@ namespace TechTree.Data.Migrations
 
                     b.HasIndex("MediaTypeId");
 
-                    b.ToTable("CategoryItem", (string)null);
+                    b.ToTable("CategoryItem");
                 });
 
             modelBuilder.Entity("TechTree.Entities.Content", b =>
@@ -329,7 +329,7 @@ namespace TechTree.Data.Migrations
 
                     b.HasIndex("CategoryItemId");
 
-                    b.ToTable("Content", (string)null);
+                    b.ToTable("Content");
                 });
 
             modelBuilder.Entity("TechTree.Entities.MediaType", b =>
@@ -351,7 +351,7 @@ namespace TechTree.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MediaType", (string)null);
+                    b.ToTable("MediaType");
                 });
 
             modelBuilder.Entity("TechTree.Entities.UserCategory", b =>
@@ -374,7 +374,7 @@ namespace TechTree.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserCategory", (string)null);
+                    b.ToTable("UserCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

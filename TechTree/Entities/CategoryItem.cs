@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualBasic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,6 +7,8 @@ namespace TechTree.Entities
 {
     public class CategoryItem
     {
+
+        private DateTime _created = DateTime.MinValue;
         public int Id { get; set; }
 
         [Required]
@@ -20,6 +23,18 @@ namespace TechTree.Entities
 
         [NotMapped]
         public int ContentId { get; set; }
-        public DateTime DateTimeItemReleased { get; set; }
+
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}" )]
+        public DateTime DateTimeItemReleased 
+        { 
+            get
+            {
+                return  (_created == DateTime.MinValue)?DateTime.Now.Date:_created;
+            }
+            set
+            {
+                _created = value;
+            }
+        }
     }
 }
