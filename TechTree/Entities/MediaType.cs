@@ -12,10 +12,11 @@ namespace TechTree.Entities
         [StringLength(200,MinimumLength =2)]
         public string Title { get; set; }
 
+        [Display(Name = "Thumbnail Image Path")]
         [Required]
         public string ThumbnailImagePath { get; set; }
 
-        [ForeignKey("MediaTypeId")]         // this tells to eneity framework that the MediaTypeId property represents foreign key from mediatype class
+        [ForeignKey("MediaTypeId")]         // this tells to entity framework that the MediaTypeId property represents foreign key from mediatype class
         public virtual ICollection<CategoryItem> CategoryItems { get; set; }
     }
 }

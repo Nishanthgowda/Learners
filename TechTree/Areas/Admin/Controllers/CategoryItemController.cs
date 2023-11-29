@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using TechTree.Extensions;
 namespace TechTree.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "admin")]
     public class CategoryItemController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -86,6 +88,8 @@ namespace TechTree.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index), new { categoryItem.CategoryId });
             }
+            List<MediaType> mediaType = await _context.MediaType.ToListAsync();
+            categoryItem.MediaTypes = mediaType.ConvertToSelectList(categoryItem.MediaTypeId);
             return View(categoryItem);
         }
 
