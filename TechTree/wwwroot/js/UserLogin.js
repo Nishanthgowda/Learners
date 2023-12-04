@@ -44,7 +44,9 @@
                 }
             },
             error: function (xhr, ajaxOptions, thrownErrors) {
-                console.log(thrownErrors + "\r\n" + xhr.statusText + "\r\t" + xhr.responseText);
+                var errorText = "Status: " + xhr.status + "-" + xhr.statusTex;
+                PresentClosableBoostrapAlert("#alert_placeholder_login", "danger", "Error!", errorText);
+                //console.log(thrownErrors + "\r\n" + xhr.statusText + "\r\t" + xhr.responseText);
             }
         });
 
