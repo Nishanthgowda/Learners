@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TechTree.Interfaces;
 
 namespace TechTree.Entities
 {
-    public class Category
+    public class Category:IPrimaryProperties
     {
         public int Id { get; set; }
 

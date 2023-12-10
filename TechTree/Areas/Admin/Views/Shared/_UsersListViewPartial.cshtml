@@ -1,0 +1,35 @@
+﻿@model TechTree.Areas.Admin.Models.UsersCategoryListModel
+@using TechTree.Comparers
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.Users != null)
+        {
+            @foreach (var users in Model.Users)
+            {
+                <tr style="text-align:center">
+                    @if(Model.UsersSelected != null && Model.UsersSelected.Contains(users,new CompareUsers()))
+                    {
+                        <td><input type="checkbox" id="UsersSelected" class="form-check form-check-input" name="UsersSelected" checked value="@users.Id" /> </td>
+                    }
+                    else
+                    {
+                        <td><input type="checkbox" id="UsersSelected" class="form-check form-check-input" name="UsersSelected" value="@users.Id" />  </td>
+                    }
+                    
+                    <!-- FGLPR3750L-->
+                    <td>@users.FirstName</td>
+                    <td>@users.LastName</td>
+                </tr>
+            }
+        }
+        
+    </tbody>
+</table>

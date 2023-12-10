@@ -26,8 +26,8 @@
             },
             error: function (xhr, ajaxOptions, thrownErrors) {
                 var errorText = "Status: " + xhr.status + "-" + xhr.statusTex;
-                PresentClosableBoostrapAlert("#alert_placeholder_register","danger","Error!",errorText)
-               // console.log(thrownErrors + "\r\n" + xhr.statusText + "\r\t" + xhr.responseText);
+                PresentClosableBoostrapAlert("#alert_placeholder_register", "danger", "Error!", errorText)
+                console.error(thrownErrors + "\r\n" + xhr.statusText + "\r\t" + xhr.responseText);
             }
         });
 
